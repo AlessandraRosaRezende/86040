@@ -1,0 +1,57 @@
+<h1>Cookie Frontend - Backend Express</h1>
+
+<label for="nome">Nome:</label>
+<input type="text" id="nome" placeholder="Digite seu nome" /><br /><br />
+
+<label for="email">Email:</label>
+<input type="email" id="email" placeholder="Digite seu email" /><br /><br />
+
+<button id="submitBtn">Submit (Criar Cookie)</button>
+<button id="getCookieBtn">Get Cookie</button>
+
+<p><strong>Valor do cookie:</strong></p>
+<textarea id="cookieBox" rows="2" cols="40" readonly>Nenhum cookie carregado ainda.</textarea>
+
+<script>
+  const submitBtn = document.getElementById('submitBtn');
+  const getCookieBtn = document.getElementById('getCookieBtn');
+  const cookieBox = document.getElementById('cookieBox');
+
+  submitBtn.addEventListener('click', async () => {
+    const nome = document.getElementById('nome').value;
+    const email = document.getElementById('email').value;
+
+    if (!email) {
+      alert('Por favor, digite o email');
+      return;
+    }
+
+    try {
+      const response = await fetch('/set-cookie', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, email })
+      });
+      const data = await response.json();
+      alert(data.message);
+    } catch (err) {
+      console.error('Erro ao criar cookie:', err);
+    }
+  });
+
+  getCookieBtn.addEventListener('click', async () => {
+    try {
+      const response = await fetch('/get-cookie');
+      const data = await response.json();
+      console.log('Cookie recebido:', data);
+      if (data.usuario) {
+        cookieBox.value = `usuario: ${data.usuario}`;
+      } else {
+        cookieBox.value = 'Nenhum cookie encontrado ou expirado.';
+      }
+    } catch (err) {
+      console.error('Erro ao obter cookie:', err);
+      cookieBox.value = 'Erro ao buscar o cookie.';
+    }
+  });
+</script>
