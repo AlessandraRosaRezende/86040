@@ -1,8 +1,8 @@
 {
-  "name": "4-handsonlab",
+  "name": "2-exerciciocookie",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.js",
+  "main": "src/app.js",
   "scripts": {
     "dev": "nodemon .",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,8 +12,8 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "dotenv": "^17.0.1",
+    "cookie-parser": "^1.4.7",
     "express": "^5.1.0",
-    "mongoose": "^8.16.0"
+    "express-handlebars": "^8.0.1"
   }
 }

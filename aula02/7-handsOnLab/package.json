@@ -1,8 +1,8 @@
 {
-  "name": "4-handsonlab",
+  "name": "7-handsonlab",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.js",
+  "main": "src/app.js",
   "scripts": {
     "dev": "nodemon .",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,8 +12,12 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "connect-mongo": "^5.1.0",
+    "cookie-parser": "^1.4.7",
     "dotenv": "^17.0.1",
     "express": "^5.1.0",
-    "mongoose": "^8.16.0"
+    "express-handlebars": "^8.0.1",
+    "express-session": "^1.18.1",
+    "mongoose": "^8.16.1"
   }
 }
