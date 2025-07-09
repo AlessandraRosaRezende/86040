@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const MongoStore = require('connect-mongo');
 const handlebars = require('express-handlebars');
 const path = require('path');
-const dbConn = require('./db/connection');
+const { dbConn, url } = require('./db/connection');
 const sessionRoutes = require('./routes/sessions.routes');
 const viewRoutes = require('./routes/views.routes');
 
@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({
   store: MongoStore.create({
-    mongoUrl: "mongodb+srv://alessandra:coder@clustercoder.n6nab.mongodb.net/",
+    mongoUrl: url,
     ttl:100,
   }),
   cookie: {
