@@ -13,6 +13,7 @@ process.on('message', message => {
 })
 
 console.log('hello world');
+process.exit(1)
 
 // essa função não existe, logo teremos uma exceção não tratado
 console();

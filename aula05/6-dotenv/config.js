@@ -1,6 +1,10 @@
 const dotenv = require('dotenv');
 
-dotenv.config();
+const environment = 'development';
+
+dotenv.config({
+  path:environment === 'development' ? './.env.development' : './.env.production'
+});
 
 module.exports = {
   port: process.env.PORT,

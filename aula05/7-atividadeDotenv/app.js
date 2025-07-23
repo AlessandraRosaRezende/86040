@@ -20,6 +20,7 @@ program
 
 // Obtendo as opções passadas pela linha de comando
 const options = program.opts();
+console.log(options);
 
 // Verificando se a opção 'mode' foi definida como 'development' ou 'production'
 if (options.mode === 'development') {

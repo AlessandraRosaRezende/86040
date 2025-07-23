@@ -25,3 +25,12 @@ console.log("Argumentos adicionais:", program.args);
 if (!program.opts().letters && program.args.length > 0) {
   program.opts().letters = program.args;
 }
+
+if (!program.opts().user) {
+  program.error('Erro - passe o usuário')
+}
+
+// node commander.js -d -p 3000 --mode development -u root --letters a b c
+// node commander.js -p 3000 -u root    
+// node commander.js -p 3000 -u root 1 2 3
+// node commander.js -p 3000 -u root 1 2 3 --letters a b c

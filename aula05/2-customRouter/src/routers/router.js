@@ -29,6 +29,30 @@ class Router {
       }
     });
   }
+
+  generateCustomResponses = (req, res, next) => {
+    res.sendSuccess = (payload) => res.status(200).json({ status: "success", payload });
+    res.sendSuccessCreated = (payload) => res.status(201).json({ status: "created", payload });
+    res.sendServerError = (error) => res.status(500).json({ status: "error", error });
+    res.sendoUserError = (error) => res.status(400).json({ status: "error", error });
+    next();
+  };
+
+  get(path, ...callbacks) {
+    this.router.get(path, this.generateCustomResponses, this.applyCallback(callbacks));
+  }
+
+  post(path, ...callbacks) {
+    this.router.post(path, this.generateCustomResponses, this.applyCallback(callbacks));
+  }
+
+  put(path, ...callbacks) {
+    this.router.post(path, this.generateCustomResponses, this.applyCallback(callbacks));
+  }
+
+  delete(path, ...callbacks) {
+    this.router.post(path, this.generateCustomResponses, this.applyCallback(callbacks));
+  }
 }
 
 module.exports = Router;
