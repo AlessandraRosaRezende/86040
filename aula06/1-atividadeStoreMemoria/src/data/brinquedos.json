@@ -1,0 +1,17 @@
+[
+  {
+    "id": 2,
+    "nome": "Super Homem",
+    "preco": 100
+  },
+  {
+    "id": 3,
+    "nome": "Super Man",
+    "preco": 100
+  },
+  {
+    "id": 3,
+    "nome": "Superman",
+    "preco": 100
+  }
+]
