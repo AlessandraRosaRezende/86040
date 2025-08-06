@@ -1,0 +1,7 @@
+<h1>Bem-vindo, {{user.first_name}} {{user.last_name}}</h1>
+<p>Email: {{user.email}}</p>
+<p>Função: {{user.role}}</p>
+
+<form method="POST" action="/api/users/logout" style="margin-top:20px;">
+  <button type="submit">Logout</button>
+</form>

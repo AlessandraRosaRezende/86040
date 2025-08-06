@@ -1,0 +1,10 @@
+<h1>Registrar</h1>
+{{#if error}}<p style="color:red;">Falha no registro!</p>{{/if}}
+<form method="POST" action="/users/register">
+  <input name="first_name" placeholder="Nome" required /><br />
+  <input name="last_name" placeholder="Sobrenome" required /><br />
+  <input name="email" type="email" placeholder="Email" required /><br />
+  <input name="password" type="password" placeholder="Senha" required /><br />
+  <button type="submit">Registrar</button>
+</form>
+<p>Já tem conta? <a href="/users/login">Entrar</a></p>
