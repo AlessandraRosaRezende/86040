@@ -2,9 +2,12 @@ const express = require('express');
 const usersRouter = require('./routes/users.router');
 const businessRouter = require('./routes/business.router');
 const ordersRouter = require('./routes/orders.router');
-const { port, connection } = require('./config/config')
+const { port, connection } = require('./config/config');
+const cors = require('cors');
 
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 
