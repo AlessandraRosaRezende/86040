@@ -7,6 +7,11 @@ const orderSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: "Business",
   },
+  status: {
+    type: String,
+    enum: ["pending", "preparing", "delivering", "delivered", "canceled"],
+    default: "pending",
+  },
   users: {
     type: mongoose.Schema.ObjectId,
     ref: "Users",

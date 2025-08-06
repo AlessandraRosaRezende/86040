@@ -17,7 +17,7 @@ const createBusiness = async (business) => {
 
 const updateBusiness = async (id, business) => {
   // findByIdAndUpdate is used to find a document by its ID and update it with the provided data
-  const businessUpdated = await businessModel.findByIdAndUpdate(id, { $set: business })
+  const businessUpdated = await businessModel.findByIdAndUpdate(id, { $set: business }, { new: true })
   return businessUpdated;
 }
 
